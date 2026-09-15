@@ -1,0 +1,27 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ic-ETITE placeholder logo">
+  <defs>
+    <linearGradient id="ic-stroke" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00E5FF"/>
+      <stop offset="1" stop-color="#00FF9C"/>
+    </linearGradient>
+    <filter id="ic-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- pins -->
+  <g stroke="url(#ic-stroke)" stroke-width="2" stroke-linecap="round" opacity="0.85">
+    <path d="M22 6v6M32 6v6M42 6v6"/>
+    <path d="M22 52v6M32 52v6M42 52v6"/>
+    <path d="M6 22h6M6 32h6M6 42h6"/>
+    <path d="M52 22h6M52 32h6M52 42h6"/>
+  </g>
+  <!-- chip body -->
+  <rect x="12" y="12" width="40" height="40" rx="8" stroke="url(#ic-stroke)" stroke-width="2.5" fill="#0B1117" filter="url(#ic-glow)"/>
+  <rect x="18" y="18" width="28" height="28" rx="5" stroke="#00E5FF" stroke-opacity="0.25" stroke-width="1"/>
+  <!-- core mark: stylized 'i' + 'E' as circuit -->
+  <circle cx="26" cy="24" r="2.4" fill="#00E5FF"/>
+  <path d="M26 29v11" stroke="#00E5FF" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M34 24h8M34 32h6M34 40h8" stroke="#00FF9C" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M34 24v16" stroke="#00FF9C" stroke-width="2.6" stroke-linecap="round"/>
+</svg>
