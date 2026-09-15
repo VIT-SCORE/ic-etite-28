@@ -93,6 +93,24 @@
     -webkit-backdrop-filter: none;
   }
 
+  .announcement-bar {
+    position: fixed;
+    top: 4.25rem;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.35);
+    background: #8b1420;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(139, 20, 32, 0.35);
+  }
+
   /* Frosted technical panel */
   .glass-panel {
     position: relative;

@@ -79,7 +79,6 @@ function DesktopItem({ item }: { item: NavItem }) {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [alertOpen, setAlertOpen] = useState(true);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -153,37 +152,17 @@ export default function Navbar() {
       </nav>
 
       {/* Deadline / alert strip — editable via DEADLINE_NOTICE */}
-      <AnimatePresence>
-        {alertOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="flex items-center justify-center gap-3 border-b border-ieee-red/40 bg-ieee-red/12 px-4 py-2 text-center">
-              <span className="h-1.5 w-1.5 flex-shrink-0 animate-pulse rounded-full bg-ieee-red shadow-[0_0_8px_#C91C2B]" />
-              <p className="font-mono text-[0.72rem] tracking-wide text-ink/90 md:text-xs">
-                {DEADLINE_NOTICE.text}
-                {DEADLINE_NOTICE.placeholder && (
-                  <span className="ml-2 rounded border border-ieee-red/40 px-1.5 py-0.5 text-[0.6rem] text-ieee-red">
-                    2024 · PLACEHOLDER
-                  </span>
-                )}
-              </p>
-              <button
-                onClick={() => setAlertOpen(false)}
-                className="flex-shrink-0 text-ieee-red/80 transition hover:text-ieee-red"
-                aria-label="Dismiss notice"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="announcement-bar">
+        <span className="h-1.5 w-1.5 flex-shrink-0 animate-pulse rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+        <p className="font-mono text-[0.72rem] tracking-wide text-white md:text-xs">
+          {DEADLINE_NOTICE.text}
+          {DEADLINE_NOTICE.placeholder && (
+            <span className="ml-2 rounded border border-white/60 px-1.5 py-0.5 text-[0.6rem] text-white">
+              2024 · PLACEHOLDER
+            </span>
+          )}
+        </p>
+      </div>
     </header>
   );
 }
