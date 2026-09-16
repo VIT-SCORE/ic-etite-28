@@ -2,6 +2,8 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { MANUSCRIPT } from "@/data/content";
 
+// Submission section linked to #manuscript: provides paper instructions, submission link, contact, and checklist.
+
 export default function ManuscriptSection() {
   return (
     <section id={MANUSCRIPT.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

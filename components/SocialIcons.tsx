@@ -1,5 +1,7 @@
 import type { SocialIcon } from "@/data/content";
 
+// Footer icon primitive: maps the typed social icon names to compact inline SVG glyphs.
+
 const common = {
   width: 18,
   height: 18,

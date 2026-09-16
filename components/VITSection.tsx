@@ -2,6 +2,8 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { VIT } from "@/data/content";
 
+// Host section linked to #vit: presents VIT background information and ranking/accreditation details.
+
 export default function VITSection() {
   return (
     <section id={VIT.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

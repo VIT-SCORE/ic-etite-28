@@ -2,6 +2,8 @@ import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 import { SPONSORS, SUPPORTED_BY, type Sponsor } from "@/data/content";
 
+// Partners section linked to #sponsors: renders sponsor tiers and supported organizations from typed content data.
+
 /**
  * Logo assets are proprietary and not bundled. Each tile shows a monogram
  * placeholder; drop a `logo` path into the sponsor data to render an image.

@@ -2,6 +2,8 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { HIGHLIGHTS } from "@/data/content";
 
+// Legacy section linked to #highlights: shows conference statistics, highlights, publication details, and proceedings.
+
 export default function HighlightsSection() {
   return (
     <section id={HIGHLIGHTS.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

@@ -2,6 +2,8 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { THEME } from "@/data/content";
 
+// Theme section linked to #theme: renders the mission statement and broad research-track cards.
+
 export default function ThemeSection() {
   return (
     <section id={THEME.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

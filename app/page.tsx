@@ -11,6 +11,7 @@ import SponsorGrid from "@/components/SponsorGrid";
 import Footer from "@/components/Footer";
 import TraceDivider from "@/components/TraceDivider";
 
+// Homepage composition: connects the global PCB layer, navigation, content sections, dividers, and footer.
 export default function Home() {
   return (
     <>

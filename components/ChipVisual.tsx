@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { HERO, BRAND } from "@/data/content";
 
+// Hero-only chip illustration: turns HERO signal data and the brand logo into the animated processor graphic.
+
 /**
  * The hero centrepiece: an IC / processor rendered in SVG with animated pins,
  * a breathing core, travelling bus pulses and floating monospace signal labels.

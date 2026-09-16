@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* Shared design tokens consumed by the page background, panels, and text utilities. */
 :root {
   --background: #05070a;
   --foreground: #f5f7fa;
@@ -23,6 +24,7 @@
 }
 
 @layer base {
+  /* Base document behavior and the dark canvas inherited by all sections. */
   html {
     scroll-behavior: smooth;
   }
@@ -60,6 +62,7 @@
 }
 
 @layer components {
+  /* Reusable semantic text colors and visual primitives used by page components. */
   .text-primary {
     color: var(--text-primary);
   }

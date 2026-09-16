@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { HERO } from "@/data/content";
+
+// Hero section linked to #home: presents the conference identity, signals, calls to action, and chip visual.
 import ChipVisual from "./ChipVisual";
 
 function CtaButton({

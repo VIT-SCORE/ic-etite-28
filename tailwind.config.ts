@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+// Tailwind tokens and utilities shared by the homepage components.
 const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",

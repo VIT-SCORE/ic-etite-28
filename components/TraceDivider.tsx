@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+// Section connector used by the homepage: draws animated PCB traces between consecutive content blocks.
+
 type Variant = "straight" | "branch" | "nodes";
 
 /**

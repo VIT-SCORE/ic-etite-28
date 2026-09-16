@@ -9,6 +9,8 @@ import {
   type MotionValue,
 } from "framer-motion";
 
+// Global visual layer: supplies the fixed animated PCB board behind every homepage section.
+
 /* -------------------------------------------------------------------------- */
 /* Trace + node data                                                           */
 /* -------------------------------------------------------------------------- */

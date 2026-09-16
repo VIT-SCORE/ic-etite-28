@@ -2,6 +2,8 @@ import Reveal from "./Reveal";
 import { CONTACT, SOCIALS, BRAND } from "@/data/content";
 import { SocialGlyph } from "./SocialIcons";
 
+// Contact section linked to #contact: renders conference contact details, documents, address, and social links.
+
 export default function Footer() {
   return (
     <footer id={CONTACT.id} className="relative mt-8 border-t border-cyan/12">

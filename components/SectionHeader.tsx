@@ -1,5 +1,7 @@
 import Reveal from "./Reveal";
 
+// Shared section heading: links each content block's label/title to the same animated visual treatment.
+
 export default function SectionHeader({
   label,
   title,

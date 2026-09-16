@@ -3,6 +3,8 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
+// Shared section animation wrapper: reveals content on scroll while respecting reduced-motion preferences.
+
 const variants: Variants = {
   hidden: { opacity: 0, y: 28 },
   show: {

@@ -2,6 +2,8 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { ABOUT } from "@/data/content";
 
+// About ic-ETITE section linked to #about: renders the conference overview and technical scope readout.
+
 export default function ContentSection() {
   return (
     <section id={ABOUT.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

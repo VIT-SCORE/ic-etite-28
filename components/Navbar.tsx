@@ -4,6 +4,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { NAV_ITEMS, DEADLINE_NOTICE, BRAND, type NavItem } from "@/data/content";
 
+// Site-wide navigation: links to page anchors and external/secondary conference routes, with the deadline alert.
+
 function Logo() {
   return (
     <a href="#home" className="group flex items-center gap-3">

@@ -2,6 +2,8 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { SCORE } from "@/data/content";
 
+// School section linked to #score: describes SCORE and its IEEE Information Theory Society chapter.
+
 export default function ScoreSection() {
   return (
     <section id={SCORE.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">

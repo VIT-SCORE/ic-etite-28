@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { BRAND } from "@/data/content";
 
+// Root document wrapper: loads self-hosted fonts and the global theme stylesheet for every route.
+
 // Self-hosted fonts (no runtime/network dependency). These register the
 // font-family names referenced by the --font-* variables in globals.css.
 import "@fontsource/space-grotesk/400.css";
