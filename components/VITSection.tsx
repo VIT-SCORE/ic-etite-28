@@ -8,7 +8,7 @@ export default function VITSection() {
       <SectionHeader label={VIT.label} title={VIT.title} accent="green" />
 
       <Reveal className="glass-panel panel-ticks mb-8 p-6 md:p-10">
-        <p className="max-w-4xl text-[0.98rem] leading-relaxed text-muted md:text-base">
+        <p className="max-w-4xl text-[0.98rem] leading-relaxed text-[#C5CED8] md:text-base">
           {VIT.body}
         </p>
       </Reveal>
@@ -16,11 +16,11 @@ export default function VITSection() {
       <Reveal delay={0.05}>
         <div className="mb-5 flex items-center gap-3">
           <span className="h-px w-8 bg-electric-green opacity-70" />
-          <h3 className="font-display text-xl font-semibold text-ink md:text-2xl">
+          <h3 className="font-display text-xl font-semibold text-[#F5F7FA] md:text-2xl">
             {VIT.ranking.label}
           </h3>
         </div>
-        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted">
+        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-[#C5CED8]">
           {VIT.ranking.intro}
         </p>
 
@@ -33,7 +33,7 @@ export default function VITSection() {
               <span className="mono-label mt-0.5 text-electric-green">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-[0.85rem] leading-relaxed text-muted">{r}</p>
+              <p className="text-[0.85rem] leading-relaxed text-[#C5CED8]">{r}</p>
             </div>
           ))}
         </div>

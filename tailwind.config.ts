@@ -8,7 +8,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        base: "#05070A",
+        surface: "#05070A",
         panel: "#0B1117",
         cyan: "#00E5FF",
         "electric-green": "#00FF9C",

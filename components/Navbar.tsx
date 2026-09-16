@@ -114,7 +114,7 @@ export default function Navbar() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="overflow-hidden border-t border-cyan/10 bg-base xl:hidden"
+              className="overflow-hidden border-t border-cyan/10 bg-surface xl:hidden"
             >
               <div className="max-h-[70vh] space-y-1 overflow-y-auto px-5 py-4">
                 {NAV_ITEMS.map((item) =>
