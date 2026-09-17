@@ -11,7 +11,7 @@ export default function ThemeSection() {
 
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal>
-          <p className="text-[0.98rem] leading-relaxed text-muted md:text-base">
+          <p className="text-[0.98rem] leading-relaxed text-secondary md:text-base">
             {THEME.body}
           </p>
         </Reveal>

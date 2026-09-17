@@ -24,7 +24,7 @@ export default function ContentSection() {
             ].map((item) => (
               <div key={item.k}>
                 <p className="mono-label text-cyan">{item.k}</p>
-                <p className="mt-1 font-display text-lg text-ink">{item.v}</p>
+                <p className="mt-1 font-display text-lg text-[var(--text-primary)]">{item.v}</p>
               </div>
             ))}
           </div>

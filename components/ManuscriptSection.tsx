@@ -11,7 +11,7 @@ export default function ManuscriptSection() {
 
       <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
         <Reveal className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
-          <p className="text-[0.95rem] leading-relaxed text-muted">{MANUSCRIPT.body}</p>
+          <p className="text-[0.95rem] leading-relaxed text-secondary">{MANUSCRIPT.body}</p>
 
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <a
@@ -45,7 +45,7 @@ export default function ManuscriptSection() {
                     <path d="m5 12 5 5 9-9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <span className="text-[0.85rem] text-muted">{c}</span>
+                <span className="text-[0.85rem] text-secondary">{c}</span>
               </li>
             ))}
           </ul>

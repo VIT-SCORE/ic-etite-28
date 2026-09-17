@@ -1,6 +1,7 @@
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { VIT } from "@/data/content";
+import EventImageCard from "./EventImageCard";
 
 // Host section linked to #vit: presents VIT background information and ranking/accreditation details.
 
@@ -9,10 +10,15 @@ export default function VITSection() {
     <section id={VIT.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label={VIT.label} title={VIT.title} accent="green" />
 
-      <Reveal className="border-l-2 border-electric-green/40 pl-5 md:pl-6">
-        <p className="max-w-4xl text-[0.98rem] leading-relaxed text-secondary md:text-base">
-          {VIT.body}
-        </p>
+      <Reveal>
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <EventImageCard title="VIT Vellore" subtitle="HOST · PHOTO AREA" aspectRatio="landscape" />
+          <div className="border-l-2 border-electric-green/40 pl-5 md:pl-6">
+            <p className="max-w-4xl text-[0.98rem] leading-relaxed text-secondary md:text-base">
+              {VIT.body}
+            </p>
+          </div>
+        </div>
       </Reveal>
 
       <Reveal delay={0.05}>

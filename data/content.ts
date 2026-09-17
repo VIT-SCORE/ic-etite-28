@@ -184,6 +184,12 @@ export const HIGHLIGHTS = {
   ],
 } as const;
 
+export const PREVIOUS_EVENT_IMAGES = [
+  { title: "Previous Event", label: "ARCHIVE · 01", image: "" },
+  { title: "Previous Event", label: "ARCHIVE · 02", image: "" },
+  { title: "Previous Event", label: "ARCHIVE · 03", image: "" },
+] as const;
+
 export const VIT = {
   id: "vit",
   label: "04 / HOST",

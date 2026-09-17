@@ -19,7 +19,7 @@ function Logo() {
         height={40}
         className="h-10 w-10 transition group-hover:drop-shadow-[0_0_10px_rgba(0,229,255,0.7)]"
       />
-      <span className="font-display text-lg font-bold tracking-tight text-ink">
+      <span className="font-display text-[1.1rem] font-bold tracking-tight text-[var(--text-primary)]">
         ic-ETITE <span className="text-cyan">&apos;28</span>
       </span>
     </a>
@@ -37,7 +37,7 @@ function DesktopItem({ item }: { item: NavItem }) {
         onMouseLeave={() => setOpen(false)}
       >
         <button
-          className="flex items-center gap-1 py-2 font-mono text-[0.8rem] tracking-wide text-muted transition-colors hover:text-cyan"
+          className="flex items-center gap-1 py-2 font-mono text-[0.9rem] font-medium tracking-wide text-[var(--text-primary)] transition-colors hover:text-cyan"
           aria-expanded={open}
         >
           {item.label}
@@ -52,13 +52,13 @@ function DesktopItem({ item }: { item: NavItem }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
               transition={{ duration: 0.16 }}
-              className="glass-panel panel-ticks absolute left-0 top-full mt-2 w-52 overflow-hidden p-1.5"
+              className="glass-panel panel-ticks absolute left-0 top-full mt-2 w-52 overflow-hidden border-[var(--border)] bg-[var(--surface)] p-1.5"
             >
               {item.children.map((c) => (
                 <a
                   key={c.label}
                   href={c.href}
-                  className="block rounded-md px-3 py-2 font-mono text-[0.8rem] text-muted transition-colors hover:bg-cyan/10 hover:text-cyan"
+                  className="block rounded-md px-3 py-2 font-mono text-[0.88rem] font-medium text-[var(--text-primary)] transition-colors hover:bg-cyan/10 hover:text-cyan"
                 >
                   {c.label}
                 </a>
@@ -73,7 +73,7 @@ function DesktopItem({ item }: { item: NavItem }) {
   return (
     <a
       href={item.href}
-      className="relative py-2 font-mono text-[0.8rem] tracking-wide text-muted transition-colors hover:text-cyan"
+      className="relative py-2 font-mono text-[0.9rem] font-medium tracking-wide text-[var(--text-primary)] transition-colors hover:text-cyan"
     >
       {item.label}
     </a>
@@ -89,7 +89,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
           <Logo />
 
-          <div className="hidden items-center gap-6 xl:flex">
+          <div className="hidden items-center gap-7 xl:flex">
             {NAV_ITEMS.map((item) => (
               <DesktopItem key={item.label} item={item} />
             ))}
@@ -164,7 +164,7 @@ export default function Navbar() {
           {DEADLINE_NOTICE.text}
           {DEADLINE_NOTICE.placeholder && (
             <span className="ml-2 rounded border border-white/60 px-1.5 py-0.5 text-[0.6rem] text-white">
-              2024 · PLACEHOLDER
+              2028 · DATE TBA
             </span>
           )}
         </p>

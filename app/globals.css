@@ -8,8 +8,8 @@
   --surface: #ffffff;
   --surface-2: #f1f4f8;
   --text-primary: #10151c;
-  --text-secondary: #4f5b68;
-  --text-muted: #718096;
+  --text-secondary: #334155;
+  --text-muted: #526173;
   --border: #dce3ea;
   --accent-red: #e21d2e;
   --accent-pink: #ff2d75;
@@ -140,6 +140,12 @@
     box-shadow: 0 4px 16px rgba(139, 20, 32, 0.2);
   }
 
+  .announcement-bar p span {
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
   /* Frosted technical panel */
   .glass-panel {
     position: relative;
@@ -201,6 +207,89 @@ main > section + section {
 
 .hero-image-overlay {
   background: linear-gradient(90deg, rgba(247, 249, 252, 1) 0%, rgba(247, 249, 252, 0.97) 25%, rgba(247, 249, 252, 0.82) 43%, rgba(247, 249, 252, 0.3) 68%, rgba(247, 249, 252, 0.05) 100%);
+}
+
+.highlight-neon-title {
+  color: var(--accent-red);
+  text-shadow: 0 0 8px rgba(226, 29, 46, 0.18), 0 0 18px rgba(226, 29, 46, 0.1);
+}
+
+.event-image-card {
+  position: relative;
+  min-height: 180px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.event-image-card__image {
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.event-image-card:hover .event-image-card__image {
+  transform: scale(1.02);
+}
+
+.event-image-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(11, 18, 32, 0.32));
+}
+
+.event-image-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+}
+
+.event-image-card__trace {
+  position: absolute;
+  height: 1px;
+  background: var(--accent-cyan);
+  opacity: 0.55;
+}
+
+.event-image-card__trace--top {
+  top: 18px;
+  left: 18px;
+  width: 72px;
+}
+
+.event-image-card__trace--bottom {
+  right: 18px;
+  bottom: 18px;
+  width: 72px;
+  background: var(--accent-red);
+}
+
+.event-image-card__node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.event-image-card__node--top {
+  top: 15px;
+  left: 88px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-cyan) 18%, transparent);
+}
+
+.event-image-card__node--bottom {
+  right: 88px;
+  bottom: 15px;
+  background: var(--accent-red);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-red) 18%, transparent);
+}
+
+.dark .highlight-neon-title {
+  text-shadow: 0 0 8px rgba(255, 77, 90, 0.24), 0 0 20px rgba(255, 77, 90, 0.14);
 }
 
 .circuit-transition {

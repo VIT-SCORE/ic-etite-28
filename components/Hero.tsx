@@ -133,8 +133,8 @@ export default function Hero() {
             <p className="flex flex-wrap items-center gap-2 font-mono text-sm text-[var(--accent-cyan)]">
               {HERO.dateLine}
               {HERO.placeholder && (
-                <span className="rounded border border-[var(--accent-red)]/40 px-1.5 py-0.5 text-[0.6rem] tracking-widest text-[var(--accent-red)]">
-                  2024 · TBA FOR &apos;28
+                <span className="rounded-md border border-[var(--accent-red)]/45 bg-[var(--accent-red)]/5 px-2 py-1 font-mono text-[0.67rem] font-semibold tracking-[0.08em] text-[var(--accent-red)]">
+                  2028 · DATE TBA
                 </span>
               )}
             </p>
