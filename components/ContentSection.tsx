@@ -6,17 +6,17 @@ import { ABOUT } from "@/data/content";
 
 export default function ContentSection() {
   return (
-    <section id={ABOUT.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id={ABOUT.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label={ABOUT.label} title={ABOUT.title} accent="cyan" />
 
-      <Reveal className="glass-panel panel-ticks p-6 md:p-10">
-        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-start">
+      <Reveal>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start">
           <p className="content-text max-w-3xl">
             {ABOUT.body}
           </p>
 
           {/* Small technical read-out to the side */}
-          <div className="flex flex-row gap-6 lg:flex-col lg:border-l lg:border-cyan/15 lg:pl-8">
+          <div className="grid grid-cols-3 gap-4 border-t border-[var(--border)] pt-5 lg:grid-cols-1 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             {[
               { k: "FORMAT", v: "Hybrid" },
               { k: "INDEXING", v: "IEEE Xplore" },

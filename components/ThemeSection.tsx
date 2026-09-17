@@ -6,11 +6,11 @@ import { THEME } from "@/data/content";
 
 export default function ThemeSection() {
   return (
-    <section id={THEME.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id={THEME.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label={THEME.label} title={THEME.title} accent="green" />
 
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <Reveal className="glass-panel panel-ticks p-6 md:p-8">
+        <Reveal>
           <p className="text-[0.98rem] leading-relaxed text-muted md:text-base">
             {THEME.body}
           </p>
@@ -22,7 +22,7 @@ export default function ThemeSection() {
             {THEME.tracks.map((t, i) => (
               <div
                 key={t}
-                className="group relative overflow-hidden rounded-xl border border-white/8 bg-panel/60 p-4 transition-colors duration-300 hover:border-electric-green/40"
+                className="group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] p-4 transition-colors duration-300 hover:border-electric-green/40"
               >
                 {/* hover electricity sweep */}
                 <span className="pointer-events-none absolute inset-x-0 -top-px h-px translate-x-[-100%] bg-gradient-to-r from-transparent via-electric-green to-transparent transition-transform duration-700 group-hover:translate-x-[100%]" />

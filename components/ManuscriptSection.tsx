@@ -6,11 +6,11 @@ import { MANUSCRIPT } from "@/data/content";
 
 export default function ManuscriptSection() {
   return (
-    <section id={MANUSCRIPT.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id={MANUSCRIPT.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label={MANUSCRIPT.label} title={MANUSCRIPT.title} accent="green" />
 
       <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
-        <Reveal className="glass-panel panel-ticks p-6 md:p-8">
+        <Reveal className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
           <p className="text-[0.95rem] leading-relaxed text-muted">{MANUSCRIPT.body}</p>
 
           <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -35,7 +35,7 @@ export default function ManuscriptSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} className="glass-panel p-6 md:p-8">
+        <Reveal delay={0.1} className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
           <p className="mono-label mb-4 text-cyan">SUBMISSION CHECKLIST</p>
           <ul className="space-y-3">
             {MANUSCRIPT.checklist.map((c) => (

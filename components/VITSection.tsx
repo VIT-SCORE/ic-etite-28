@@ -6,11 +6,11 @@ import { VIT } from "@/data/content";
 
 export default function VITSection() {
   return (
-    <section id={VIT.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id={VIT.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label={VIT.label} title={VIT.title} accent="green" />
 
-      <Reveal className="glass-panel panel-ticks mb-8 p-6 md:p-10">
-        <p className="max-w-4xl text-[0.98rem] leading-relaxed text-[#C5CED8] md:text-base">
+      <Reveal className="border-l-2 border-electric-green/40 pl-5 md:pl-6">
+        <p className="max-w-4xl text-[0.98rem] leading-relaxed text-secondary md:text-base">
           {VIT.body}
         </p>
       </Reveal>
@@ -18,11 +18,11 @@ export default function VITSection() {
       <Reveal delay={0.05}>
         <div className="mb-5 flex items-center gap-3">
           <span className="h-px w-8 bg-electric-green opacity-70" />
-          <h3 className="font-display text-xl font-semibold text-[#F5F7FA] md:text-2xl">
+          <h3 className="font-display text-xl font-semibold text-ink md:text-2xl">
             {VIT.ranking.label}
           </h3>
         </div>
-        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-[#C5CED8]">
+        <p className="mb-5 max-w-3xl text-sm leading-relaxed text-secondary">
           {VIT.ranking.intro}
         </p>
 
@@ -30,12 +30,12 @@ export default function VITSection() {
           {VIT.ranking.items.map((r, i) => (
             <div
               key={i}
-              className="group flex gap-3 rounded-xl border border-white/8 bg-panel/50 p-4 transition-colors hover:border-electric-green/35"
+              className="group flex gap-3 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-4 transition-colors hover:border-electric-green/35"
             >
               <span className="mono-label mt-0.5 text-electric-green">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-[0.85rem] leading-relaxed text-[#C5CED8]">{r}</p>
+              <p className="text-[0.85rem] leading-relaxed text-secondary">{r}</p>
             </div>
           ))}
         </div>

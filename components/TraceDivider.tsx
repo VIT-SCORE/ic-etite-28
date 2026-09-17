@@ -22,23 +22,22 @@ export default function TraceDivider({
   const stroke = color === "cyan" ? "var(--circuit-primary)" : "var(--circuit-secondary)";
 
   const paths: Record<Variant, string[]> = {
-    // Single line dropping down the page
-    straight: ["M 200 0 V 40 L 170 70 V 120"],
-    // One trace branching into several electronic paths
+    // Compact horizontal connector between adjacent content sections.
+    straight: ["M 20 24 H 170 L 190 12 H 380"],
+    // One compact trace branching into several electronic paths.
     branch: [
-      "M 200 0 V 30 L 200 30",
-      "M 200 30 L 120 70 L 120 120",
-      "M 200 30 L 280 70 L 280 120",
-      "M 200 30 V 120",
+      "M 20 24 H 170 L 200 24",
+      "M 200 24 L 230 10 H 380",
+      "M 200 24 L 230 38 H 380",
     ],
-    // A run studded with nodes that light up
-    nodes: ["M 40 60 H 360"],
+    // A short run studded with nodes that light up.
+    nodes: ["M 20 24 H 380"],
   };
 
   const nodePoints: Record<Variant, [number, number][]> = {
-    straight: [[200, 0], [170, 70], [170, 120]],
-    branch: [[200, 30], [120, 120], [200, 120], [280, 120]],
-    nodes: [[40, 60], [130, 60], [220, 60], [310, 60], [360, 60]],
+    straight: [[20, 24], [170, 24], [190, 12]],
+    branch: [[20, 24], [200, 24], [230, 10], [230, 38]],
+    nodes: [[20, 24], [130, 24], [250, 24], [380, 24]],
   };
 
   const draw = {
@@ -51,11 +50,11 @@ export default function TraceDivider({
   };
 
   return (
-    <div className="circuit-transition pointer-events-none flex justify-center" aria-hidden="true">
+    <div className="circuit-transition pointer-events-none flex h-12 justify-center" aria-hidden="true">
       <svg
         width="400"
-        height="120"
-        viewBox="0 0 400 120"
+        height="48"
+        viewBox="0 0 400 48"
         fill="none"
         className="overflow-visible"
       >

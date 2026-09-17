@@ -9,7 +9,6 @@ import ScoreSection from "@/components/ScoreSection";
 import ManuscriptSection from "@/components/ManuscriptSection";
 import SponsorGrid from "@/components/SponsorGrid";
 import Footer from "@/components/Footer";
-import TraceDivider from "@/components/TraceDivider";
 
 // Homepage composition: connects the global PCB layer, navigation, content sections, dividers, and footer.
 export default function Home() {
@@ -23,28 +22,12 @@ export default function Home() {
       <main className="relative z-10">
         <Hero />
 
-        {/* Hero → About: a cyan trace drops downward */}
-        <TraceDivider variant="straight" color="cyan" />
         <ContentSection />
-
-        {/* About → Theme: the trace branches into multiple paths */}
-        <TraceDivider variant="branch" color="green" />
         <ThemeSection />
-
-        {/* Theme → Highlights: nodes illuminate as the section enters view */}
-        <TraceDivider variant="nodes" color="cyan" />
         <HighlightsSection />
-
-        <TraceDivider variant="straight" color="green" />
         <VITSection />
-
-        <TraceDivider variant="nodes" color="cyan" />
         <ScoreSection />
-
-        <TraceDivider variant="branch" color="cyan" />
         <ManuscriptSection />
-
-        <TraceDivider variant="straight" color="green" />
         <SponsorGrid />
       </main>
 

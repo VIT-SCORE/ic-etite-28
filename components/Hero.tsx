@@ -70,7 +70,7 @@ export default function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="home" className="hero-section relative isolate min-h-[680px] overflow-hidden pt-36">
+    <section id="home" className="hero-section relative isolate min-h-[620px] overflow-hidden pt-32">
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <Image
           src="/assets/VIT.PNG"
@@ -85,7 +85,7 @@ export default function Hero() {
       <CircuitDecoration />
       <Particles />
 
-      <div className="mx-auto grid min-h-[560px] max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-16 pt-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:px-8 lg:pb-20">
+      <div className="mx-auto grid min-h-[500px] max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-10 pt-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:px-8 lg:pb-12">
         {/* Left column: text */}
         <div>
           {/* Control-system status bar */}
@@ -145,7 +145,7 @@ export default function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.28 }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-7 flex flex-wrap gap-3"
           >
             {HERO.primaryCtas.map((c) => (
               <CtaButton key={c.label} {...c} />
@@ -183,7 +183,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll hint */}
-      <div className="flex justify-center pb-6">
+      <div className="flex justify-center pb-3">
         <motion.div
           animate={reduce ? {} : { y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity }}

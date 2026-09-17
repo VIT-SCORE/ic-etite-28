@@ -6,13 +6,13 @@ import { HIGHLIGHTS } from "@/data/content";
 
 export default function HighlightsSection() {
   return (
-    <section id={HIGHLIGHTS.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id={HIGHLIGHTS.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label={HIGHLIGHTS.label} title={HIGHLIGHTS.title} accent="cyan" />
 
       {/* Stat strip */}
-      <Reveal className="mb-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-cyan/15 bg-cyan/10 md:grid-cols-4">
+      <Reveal className="mb-6 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--border)] md:grid-cols-4">
         {HIGHLIGHTS.stats.map((s) => (
-          <div key={s.label} className="bg-panel/90 p-5 text-center">
+          <div key={s.label} className="bg-[var(--surface)] p-4 text-center">
             <p className="font-display text-2xl font-bold text-cyan text-glow-cyan md:text-3xl">
               {s.value}
             </p>
@@ -24,7 +24,7 @@ export default function HighlightsSection() {
       </Reveal>
 
       <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-        <Reveal className="glass-panel panel-ticks p-6 md:p-8">
+        <Reveal className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
           <ul className="space-y-4">
             {HIGHLIGHTS.items.map((item, i) => (
               <li key={i} className="flex gap-3">
@@ -35,7 +35,7 @@ export default function HighlightsSection() {
           </ul>
         </Reveal>
 
-        <Reveal delay={0.1} className="glass-panel flex flex-col justify-between p-6 md:p-8">
+        <Reveal delay={0.1} className="flex flex-col justify-between rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
           <div>
             <p className="mono-label text-electric-green">PUBLICATION</p>
             <p className="mt-3 text-sm leading-relaxed text-muted">

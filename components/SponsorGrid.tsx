@@ -51,7 +51,7 @@ function SponsorTile({ s, big = false }: { s: Sponsor; big?: boolean }) {
 
 export default function SponsorGrid() {
   return (
-    <section id="sponsors" className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id="sponsors" className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader label="08 / PARTNERS" title="Sponsors & Partners" accent="cyan" />
 
       <Reveal className="mb-10 grid gap-4 sm:grid-cols-3">

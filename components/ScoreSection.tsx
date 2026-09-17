@@ -6,7 +6,7 @@ import { SCORE } from "@/data/content";
 
 export default function ScoreSection() {
   return (
-    <section id={SCORE.id} className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
+    <section id={SCORE.id} className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
       <SectionHeader
         label={SCORE.label}
         title={SCORE.title}
@@ -15,7 +15,7 @@ export default function ScoreSection() {
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Reveal className="glass-panel panel-ticks p-6 md:p-8">
+        <Reveal className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
           <div className="mb-4 flex items-center gap-3">
             <span className="trace-node h-2.5 w-2.5 rounded-full bg-cyan" />
             <span className="mono-label text-cyan">SCHOOL · SCORE</span>
@@ -34,7 +34,7 @@ export default function ScoreSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} className="glass-panel p-6 md:p-8">
+        <Reveal delay={0.1} className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 md:p-7">
           <div className="mb-4 flex items-center gap-3">
             <span className="trace-node h-2.5 w-2.5 rounded-full bg-electric-green" />
             <span className="mono-label text-electric-green">STUDENT CHAPTER</span>

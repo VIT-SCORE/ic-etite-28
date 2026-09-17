@@ -17,12 +17,12 @@ export default function SectionHeader({
   const line = accent === "cyan" ? "bg-cyan" : "bg-electric-green";
 
   return (
-    <Reveal className="mb-8 md:mb-12">
+    <Reveal className="mb-6 md:mb-7">
       <div className="flex items-center gap-3">
         <span className={`h-px w-8 ${line} opacity-70`} />
         <span className={`mono-label ${color}`}>{label}</span>
       </div>
-      <h2 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl lg:text-5xl">
+      <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl lg:text-[2.75rem]">
         {title}
       </h2>
       {subtitle ? (
