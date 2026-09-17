@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { HERO } from "@/data/content";
 
-// Hero section linked to #home: presents the conference identity, signals, calls to action, and chip visual.
-import ChipVisual from "./ChipVisual";
+// Hero section linked to #home: presents the conference identity over the VIT campus image.
 
 function CtaButton({
   label,
@@ -19,11 +19,11 @@ function CtaButton({
     "group relative inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-mono text-[0.8rem] font-medium tracking-wide transition-all duration-200";
   const styles: Record<string, string> = {
     primary:
-      "bg-cyan/12 text-cyan border border-cyan/40 hover:bg-cyan/20 hover:shadow-glow-cyan",
+      "border-[var(--accent-red)] bg-[var(--surface)] text-[var(--accent-red)] hover:-translate-y-0.5 hover:bg-[var(--accent-red)]/10 hover:shadow-[0_10px_24px_rgba(226,29,46,0.14)]",
     secondary:
-      "bg-electric-green/10 text-electric-green border border-electric-green/40 hover:bg-electric-green/18 hover:shadow-glow-green",
+      "border-[var(--accent-cyan)]/60 bg-[var(--surface-2)] text-[var(--accent-cyan)] hover:-translate-y-0.5 hover:bg-[var(--accent-cyan)]/10 hover:shadow-[0_10px_24px_rgba(0,175,198,0.14)]",
     ghost:
-      "text-muted border border-white/10 hover:border-cyan/40 hover:text-cyan",
+      "border-[var(--border)] text-[var(--text-muted)] hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)]",
   };
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={`${base} ${styles[variant]}`}>
@@ -70,10 +70,22 @@ export default function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="home" className="relative overflow-hidden pt-32 md:pt-36">
+    <section id="home" className="hero-section relative isolate min-h-[680px] overflow-hidden pt-36">
+      <div className="absolute inset-0 -z-20 overflow-hidden">
+        <Image
+          src="/assets/VIT.PNG"
+          alt="VIT Vellore campus"
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 60vw"
+          className="hero-campus-image object-cover object-[center_right]"
+        />
+      </div>
+      <div aria-hidden="true" className="hero-image-overlay absolute inset-0 -z-10" />
+      <CircuitDecoration />
       <Particles />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-16 pt-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:px-8 lg:pb-24">
+      <div className="mx-auto grid min-h-[560px] max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-16 pt-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8 lg:px-8 lg:pb-20">
         {/* Left column: text */}
         <div>
           {/* Control-system status bar */}
@@ -81,31 +93,32 @@ export default function Hero() {
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="glass-panel mb-6 inline-flex items-center gap-3 rounded-full px-4 py-1.5"
+            className="hero-status mb-6 inline-flex items-center gap-3 rounded-full px-4 py-1.5"
           >
-            <span className="h-2 w-2 animate-pulse rounded-full bg-electric-green shadow-glow-green" />
-            <span className="mono-label text-electric-green">SYSTEM ONLINE</span>
-            <span className="h-3 w-px bg-white/10" />
-            <span className="mono-label">{HERO.eyebrow}</span>
+            <span className="hero-status-indicator h-2 w-2 animate-pulse rounded-full" />
+            <span className="mono-label text-[var(--text-secondary)]">SYSTEM ONLINE</span>
+            <span className="h-3 w-px bg-[var(--border)]" />
+            <span className="mono-label text-[var(--text-secondary)]">{HERO.eyebrow}</span>
           </motion.div>
 
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+            className="font-display text-5xl font-bold leading-[0.98] tracking-tight text-[var(--text-primary)] sm:text-6xl lg:text-[4.5rem]"
           >
-            Welcome to
-            <br />
-            <span className="text-cyan text-glow-cyan">ic-ETITE </span>
-            <span className="text-electric-green text-glow-green">&apos;28</span>
+            <span className="block">Welcome to</span>
+            <span className="block">
+              <span className="text-[var(--accent-red)]">ic-ETITE</span>
+              <span className="text-[var(--accent-pink)]">&apos;28</span>
+            </span>
           </motion.h1>
 
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.12 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg"
+            className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--text-secondary)] md:text-lg"
           >
             {HERO.subtitle}
           </motion.p>
@@ -114,13 +127,13 @@ export default function Hero() {
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 space-y-2 border-l border-cyan/20 pl-4"
+            className="mt-6 space-y-2 border-l border-[var(--accent-cyan)]/40 pl-4"
           >
-            <p className="font-mono text-sm text-ink/80">{HERO.sponsorLine}</p>
-            <p className="flex flex-wrap items-center gap-2 font-mono text-sm text-cyan">
+            <p className="font-mono text-sm text-[var(--text-primary)]">{HERO.sponsorLine}</p>
+            <p className="flex flex-wrap items-center gap-2 font-mono text-sm text-[var(--accent-cyan)]">
               {HERO.dateLine}
               {HERO.placeholder && (
-                <span className="rounded border border-ieee-red/40 px-1.5 py-0.5 text-[0.6rem] tracking-widest text-ieee-red">
+                <span className="rounded border border-[var(--accent-red)]/40 px-1.5 py-0.5 text-[0.6rem] tracking-widest text-[var(--accent-red)]">
                   2024 · TBA FOR &apos;28
                 </span>
               )}
@@ -156,13 +169,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right column: chip visual */}
         <motion.div
-          initial={reduce ? false : { opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={reduce ? false : { opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden justify-self-end lg:block"
         >
-          <ChipVisual />
+          <div className="border-l border-[var(--accent-red)] pl-4">
+            <p className="font-display text-3xl font-medium italic text-[var(--text-primary)]">VIT Vellore</p>
+            <p className="mt-1 font-mono text-[0.65rem] tracking-[0.25em] text-[var(--text-muted)]">A BRIGHTER TOMORROW</p>
+          </div>
         </motion.div>
       </div>
 
@@ -173,12 +189,25 @@ export default function Hero() {
           transition={{ duration: 1.8, repeat: Infinity }}
           className="flex flex-col items-center gap-1"
         >
-          <span className="mono-label">SCROLL</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-cyan">
+          <span className="mono-label text-[var(--text-muted)]">SCROLL</span>
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-[var(--accent-cyan)]">
             <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function CircuitDecoration() {
+  return (
+    <svg aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-70" viewBox="0 0 1440 700" preserveAspectRatio="none" fill="none">
+      <path className="hero-trace" d="M0 170H210L260 220H430M1440 480H1190L1125 415H980" />
+      <path className="hero-trace hero-trace-secondary" d="M80 560H330L390 500H560M1380 145H1210L1150 205H1020" />
+      <circle className="hero-node" cx="430" cy="220" r="4" />
+      <circle className="hero-node" cx="980" cy="415" r="4" />
+      <circle className="hero-node" cx="560" cy="500" r="3" />
+      <circle className="hero-node" cx="1020" cy="205" r="3" />
+    </svg>
   );
 }

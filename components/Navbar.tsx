@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { NAV_ITEMS, DEADLINE_NOTICE, BRAND, type NavItem } from "@/data/content";
+import ThemeToggle from "./ThemeToggle";
 
 // Site-wide navigation: links to page anchors and external/secondary conference routes, with the deadline alert.
 
@@ -94,18 +95,21 @@ export default function Navbar() {
             ))}
           </div>
 
-          <button
-            className="flex h-10 w-10 items-center justify-center rounded-md border border-cyan/20 text-cyan xl:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-          >
-            <div className="relative h-4 w-5">
-              <span className={`absolute left-0 h-0.5 w-5 bg-current transition-all ${mobileOpen ? "top-2 rotate-45" : "top-0"}`} />
-              <span className={`absolute left-0 top-2 h-0.5 w-5 bg-current transition-all ${mobileOpen ? "opacity-0" : "opacity-100"}`} />
-              <span className={`absolute left-0 h-0.5 w-5 bg-current transition-all ${mobileOpen ? "top-2 -rotate-45" : "top-4"}`} />
-            </div>
-          </button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border)] text-[var(--accent-cyan)] transition-colors hover:bg-[var(--accent-cyan)]/10 focus:outline-none focus:ring-2 focus:ring-[var(--accent-cyan)] xl:hidden"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+            >
+              <div className="relative h-4 w-5">
+                <span className={`absolute left-0 h-0.5 w-5 bg-current transition-all ${mobileOpen ? "top-2 rotate-45" : "top-0"}`} />
+                <span className={`absolute left-0 top-2 h-0.5 w-5 bg-current transition-all ${mobileOpen ? "opacity-0" : "opacity-100"}`} />
+                <span className={`absolute left-0 h-0.5 w-5 bg-current transition-all ${mobileOpen ? "top-2 -rotate-45" : "top-4"}`} />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}

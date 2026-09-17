@@ -3,24 +3,49 @@
 
 /* Shared design tokens consumed by the page background, panels, and text utilities. */
 :root {
-  --background: #05070a;
-  --foreground: #f5f7fa;
-
-  --text-primary: #f5f7fa;
-  --text-secondary: #c5ced8;
-  --text-muted: #8b98a7;
-  --base: #05070a;
-  --panel: #0b1117;
-  --cyan: #00e5ff;
-  --green: #00ff9c;
-  --red: #c91c2b;
-  --ink: #f5f7fa;
-  --muted: #8b98a7;
+  --background: #f7f9fc;
+  --foreground: #10151c;
+  --surface: #ffffff;
+  --surface-2: #f1f4f8;
+  --text-primary: #10151c;
+  --text-secondary: #4f5b68;
+  --text-muted: #718096;
+  --border: #dce3ea;
+  --accent-red: #e21d2e;
+  --accent-pink: #ff2d75;
+  --accent-cyan: #00afc6;
+  --accent-green: #159a68;
+  --circuit-primary: #d62839;
+  --circuit-secondary: #008f95;
+  --base: var(--background);
+  --panel: var(--surface-2);
+  --cyan: var(--accent-cyan);
+  --green: var(--accent-green);
+  --red: var(--accent-red);
+  --ink: var(--text-primary);
+  --muted: var(--text-muted);
 
   /* Font stacks (loaded via <link> in app/layout.tsx) */
   --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
   --font-inter: "Inter", system-ui, sans-serif;
   --font-jetbrains-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #f3f6fa;
+  --surface: #111a2b;
+  --surface-2: #172235;
+  --text-primary: #f3f6fa;
+  --text-secondary: #c1cbd7;
+  --text-muted: #8e9caf;
+  --border: #26354a;
+  --accent-red: #ff4d5a;
+  --accent-pink: #ff4d9d;
+  --accent-cyan: #4dd9ff;
+  --accent-green: #55e6a5;
+  --circuit-primary: #4dd9ff;
+  --circuit-secondary: #55e6a5;
 }
 
 @layer base {
@@ -30,8 +55,9 @@
   }
 
   body {
-    background-color: var(--base);
-    color: var(--ink);
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color 300ms ease, color 300ms ease;
     font-feature-settings: "ss01", "cv01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -49,7 +75,7 @@
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #05070a;
+    background: var(--surface);
   }
   ::-webkit-scrollbar-thumb {
     background: linear-gradient(#0b3038, #0b1117);
@@ -76,7 +102,7 @@
   }
 
   .content-text {
-    color: #c5ced8;
+    color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.8;
   }
@@ -87,11 +113,11 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: #05070a;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
     box-shadow:
       0 4px 20px rgba(0, 0, 0, 0.45),
-      0 1px 12px rgba(0, 229, 255, 0.05);
+      0 1px 12px rgba(0, 0, 0, 0.05);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -107,22 +133,18 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    border-bottom: 1px solid rgba(0, 229, 255, 0.35);
-    background: #8b1420;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    background: #c91c2b;
     padding: 0.5rem 1rem;
     text-align: center;
-    box-shadow: 0 4px 16px rgba(139, 20, 32, 0.35);
+    box-shadow: 0 4px 16px rgba(139, 20, 32, 0.2);
   }
 
   /* Frosted technical panel */
   .glass-panel {
     position: relative;
-    background: linear-gradient(
-      160deg,
-      rgba(11, 17, 23, 0.86),
-      rgba(6, 10, 14, 0.82)
-    );
-    border: 1px solid rgba(0, 229, 255, 0.14);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 14px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -159,7 +181,7 @@
     font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
     font-size: 0.68rem;
     letter-spacing: 0.22em;
-    color: var(--muted);
+    color: var(--text-muted);
   }
 
   .text-glow-cyan {
@@ -174,6 +196,109 @@
     box-shadow:
       0 0 0 1px rgba(0, 229, 255, 0.35),
       0 0 12px rgba(0, 229, 255, 0.6);
+  }
+}
+
+.hero-image-overlay {
+  background: linear-gradient(90deg, rgba(247, 249, 252, 1) 0%, rgba(247, 249, 252, 0.97) 25%, rgba(247, 249, 252, 0.82) 43%, rgba(247, 249, 252, 0.3) 68%, rgba(247, 249, 252, 0.05) 100%);
+}
+
+.circuit-transition {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--background) 72%, transparent) 24%,
+    color-mix(in srgb, var(--background) 92%, transparent) 72%,
+    transparent
+  );
+}
+
+.hero-campus-image {
+  opacity: 0.84;
+  transform: scale(1.1);
+  transform-origin: center center;
+  animation: campus-pan 28s ease-in-out infinite alternate;
+}
+
+.hero-status {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--border);
+}
+
+.hero-status-indicator {
+  background: var(--accent-red);
+}
+
+.hero-trace {
+  stroke: var(--circuit-primary);
+  stroke-width: 1;
+  opacity: 0.16;
+}
+
+.hero-trace-secondary {
+  stroke: var(--circuit-secondary);
+}
+
+.hero-node {
+  fill: var(--circuit-primary);
+  opacity: 0.4;
+  animation: node-flash 4s ease-in-out infinite;
+}
+
+.dark .hero-image-overlay {
+  background: linear-gradient(90deg, rgba(11, 18, 32, 1) 0%, rgba(11, 18, 32, 0.96) 24%, rgba(11, 18, 32, 0.82) 43%, rgba(11, 18, 32, 0.38) 70%, rgba(11, 18, 32, 0.12) 100%);
+}
+
+.dark .hero-campus-image {
+  filter: saturate(0.75) brightness(0.72);
+}
+
+@keyframes campus-pan {
+  0% {
+    transform: scale(1.1) translate3d(4%, 0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate3d(-4%, 0, 0);
+  }
+}
+
+.dark .hero-status {
+  background: var(--surface);
+}
+
+.dark .announcement-bar {
+  background: #561b2a;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 700px;
+  }
+
+  .hero-image-overlay {
+    background: linear-gradient(90deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.9) 55%, rgba(247, 249, 252, 0.45) 100%);
+  }
+
+  .hero-campus-image {
+    opacity: 0.58;
+    animation-duration: 34s;
+  }
+
+  .dark .hero-image-overlay {
+    background: linear-gradient(90deg, rgba(11, 18, 32, 0.98) 0%, rgba(11, 18, 32, 0.9) 55%, rgba(11, 18, 32, 0.52) 100%);
+  }
+
+  .dark .hero-campus-image {
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-campus-image {
+    animation: none;
+    transform: scale(1.1);
   }
 }
 

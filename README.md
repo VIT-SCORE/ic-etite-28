@@ -1,106 +1,162 @@
-# ic-ETITE '28 — Conference Website
+# ic-ETITE '28
 
-A futuristic IEEE electronic-circuit / PCB themed conference site built with
-**Next.js 14 (App Router) · React · TypeScript · Tailwind CSS · Framer Motion**.
+The conference website for the **International Conference on Emerging Trends in
+Information Technology and Engineering**, hosted by VIT Vellore and technically
+co-sponsored by IEEE Madras Section.
 
-The visual centrepiece is a **dynamic, scroll-reactive PCB circuit background**
-that lives behind every section — SVG traces with neon glow, continuous
-travelling pulses at different speeds, flashing junction nodes, a parallax grid,
-and pulses that react to scroll progress.
+This is a single-page Next.js site with a dark PCB/electronics visual language,
+scroll-reactive circuit artwork, conference information, submission details,
+sponsor content, and contact information.
 
----
+## Technology
 
-## Quick start
+- Next.js 14 with the App Router
+- React 18 and TypeScript
+- Tailwind CSS 4 with PostCSS
+- Framer Motion for scroll reveals and circuit animation
+- `@fontsource` packages for self-hosted Space Grotesk, Inter, and JetBrains Mono
+
+## Getting started
+
+Requirements: Node.js 18.17 or newer and npm.
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
-npm run build    # production build (already passes clean: 0 errors, 0 warnings)
-npm start        # serve the production build
+npm run dev
 ```
 
-> This project has been built and linted successfully with `next@14.2.35`
-> (`✔ No ESLint warnings or errors`).
+Open [http://localhost:3000](http://localhost:3000) in a browser. The available
+project scripts are:
 
----
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local development server. |
+| `npm run lint` | Run Next.js ESLint checks. |
+| `npm run build` | Create an optimized production build. |
+| `npm start` | Serve the production build after `npm run build`. |
+
+No environment variables or backend services are required by the current site.
+
+## Page composition
+
+The homepage is assembled in `app/page.tsx` in this order:
+
+1. Fixed PCB circuit background
+2. Navigation and deadline notice
+3. Hero and conference calls to action
+4. About ic-ETITE
+5. Conference theme and research tracks
+6. ic-ETITE'20 legacy highlights and proceedings
+7. About VIT and ranking/accreditation
+8. About SCORE and the IEEE Information Theory Society
+9. Manuscript submission guidance
+10. Sponsors and supporting organisations
+11. Contact footer
+
+Trace dividers visually connect the major sections. The page currently has no
+server-side data fetching, API routes, authentication, or database.
 
 ## Project structure
 
-```
+```text
 app/
-  layout.tsx              Root layout + self-hosted fonts (@fontsource)
-  page.tsx                Assembles all sections + trace dividers
-  globals.css             Theme tokens, glass panels, keyframes, reduced-motion
+  layout.tsx              Root layout, metadata, viewport, and font imports
+  page.tsx                Homepage composition and section order
+  globals.css             Theme tokens, layout utilities, keyframes, and motion rules
 components/
-  CircuitBackground.tsx   ★ The dynamic PCB background (SVG + Framer Motion)
-  Navbar.tsx              Fixed dark-glass nav, Conference dropdown, mobile menu,
-                          red deadline alert strip
-  Hero.tsx                Control-system hero (typography, CTAs, signals, particles)
-  ChipVisual.tsx          Glowing IC/processor graphic used in the hero
-  SectionHeader.tsx       Mono label + display title
-  Reveal.tsx              Scroll-reveal wrapper (reduced-motion aware)
-  TraceDivider.tsx        PCB traces that connect sections (straight/branch/nodes)
+  CircuitBackground.tsx   Animated SVG PCB layer and scroll-driven effects
+  Navbar.tsx              Desktop navigation, dropdown, mobile menu, and notice strip
+  Hero.tsx                Hero copy, calls to action, signals, and chip visual
+  ChipVisual.tsx          Decorative processor/IC illustration
+  SectionHeader.tsx       Shared section label and heading
+  Reveal.tsx              Scroll-reveal wrapper with reduced-motion support
+  TraceDivider.tsx        PCB trace connectors between sections
   ContentSection.tsx      About ic-ETITE
-  ThemeSection.tsx        Theme + track cards
-  HighlightsSection.tsx   ic-ETITE'20 legacy stats + proceedings
-  VITSection.tsx          About VIT + Ranking & Accreditation
-  ScoreSection.tsx        About SCORE + IEEE Information Theory Society
-  ManuscriptSection.tsx   Submission info + checklist
-  SponsorGrid.tsx         Tiered sponsors + Supported By
-  Footer.tsx              Contact, address, documents, social links
-  SocialIcons.tsx         Inline SVG social glyphs
+  ThemeSection.tsx        Theme and research tracks
+  HighlightsSection.tsx   ic-ETITE'20 history, statistics, and proceedings
+  VITSection.tsx          VIT overview, ranking, and accreditation
+  ScoreSection.tsx        SCORE and IEEE Information Theory Society information
+  ManuscriptSection.tsx   Submission copy, checklist, and CMT link
+  SponsorGrid.tsx         Sponsor and supporting organisation lists
+  Footer.tsx              Contact, documents, address, and social links
+  SocialIcons.tsx         Social icon rendering
 data/
-  content.ts              ★ ALL copy as typed constants — edit here
+  content.ts              Typed source of all visible conference content and links
 public/
-  assets/logo.svg         Placeholder logo (see below)
+  assets/logo.svg         Logo asset referenced by the brand configuration
+types/
+  styles.d.ts             Type declarations for imported style modules
+next.config.js            Next.js configuration
+tailwind.config.ts        Design tokens, fonts, colors, shadows, and animations
+postcss.config.mjs        PostCSS/Tailwind integration
+tsconfig.json             TypeScript compiler and path alias configuration
 ```
 
----
+## Updating conference content
 
-## Editing content
+Edit `data/content.ts` for copy and links. The main typed content groups are:
 
-Everything visible on the site is defined in **`data/content.ts`** as typed
-constants (`HERO`, `ABOUT`, `THEME`, `HIGHLIGHTS`, `VIT`, `SCORE`, `MANUSCRIPT`,
-`SPONSORS`, `CONTACT`, `NAV_ITEMS`, `DEADLINE_NOTICE`, …). Change a value there and
-it updates across the site — no component edits needed.
+- `BRAND`: name, edition, full conference name, and logo path
+- `NAV_ITEMS`: primary navigation and conference submenu links
+- `DEADLINE_NOTICE`: the alert-strip copy and placeholder state
+- `HERO`: hero copy, dates, sponsor line, calls to action, and signal labels
+- `ABOUT`, `THEME`, `HIGHLIGHTS`, `VIT`, `SCORE`, `MANUSCRIPT`: page sections
+- `SPONSORS` and `SUPPORTED_BY`: organisation names, tiers, and optional links
+- `CONTACT` and `SOCIALS`: contact address, documents, email, and social links
 
-### About the 2028 details
-Per the brief, **no official 2028 dates, deadlines, speakers, sponsors, fees or
-links were invented.** The 2024 content is retained as editable placeholder
-content. Fields that are not yet official are marked `placeholder: true` and
-render with a subtle red **"PLACEHOLDER / TBA"** chip (hero date line and the
-deadline strip). Remove those flags once official info is available.
+The 2028 dates, deadlines, speakers, fees, and several links are still marked as
+placeholder information retained from the 2024 conference. Update the values and
+remove the relevant `placeholder: true` flags when official information is
+available. The components already render placeholder content with a visible TBA
+treatment.
 
----
+The navigation includes several legacy or future routes such as `/authors`,
+`/registrations`, `/speakers`, `/committee`, `/sponsorship`, `/visa`,
+`/icetite20`, and `/hotel`. These paths are configured as links, but corresponding
+pages are not included in this repository yet. Add App Router pages under `app/`
+before treating them as active routes.
 
-## Replacing the logo
+## Branding and assets
 
-Drop the final logo at **`public/assets/logo.svg`** (overwrite the placeholder).
-Every logo reference (`BRAND.logo` in `data/content.ts`) points at that path, so
-the navbar, hero chip and footer update automatically — no code changes.
+Replace `public/assets/logo.svg` with the final logo while keeping the same path.
+The path is read from `BRAND.logo`, so the navbar, hero, and footer update without
+component changes. Additional public assets can be referenced with paths beginning
+at `/`, for example `/assets/conference-brochure.pdf`.
 
----
+## Visual system and motion
 
-## The circuit background
+The visual tokens live in `tailwind.config.ts` and `app/globals.css`. The design
+uses a near-black surface with cyan, electric green, and IEEE red accents, plus
+Space Grotesk for display text, Inter for body text, and JetBrains Mono for labels.
 
-`components/CircuitBackground.tsx` is a fixed, full-viewport layer behind the
-content (`-z-10`). It uses:
+`CircuitBackground.tsx` provides the fixed full-viewport board behind the page:
 
-- **SVG traces** authored on a `1440×900` viewBox (orthogonal + 45° PCB routing).
-- **`pathLength={100}`** so travelling pulses are path-length independent.
-- **Ambient pulses** (Framer Motion loops) with a different duration per trace.
-- **Scroll-bound pulses** whose `strokeDashoffset` is driven by `useScroll` →
-  `useTransform`, so current flows as you scroll.
-- **Flashing nodes** via a staggered CSS keyframe.
-- **Parallax grid** + subtle board drift tied to scroll progress.
-- **`prefers-reduced-motion`**: all motion is disabled and a static board is shown.
-- **Mobile**: `desktopOnly` traces/nodes are dropped and grid density is reduced.
+- SVG traces use a `1440 x 900` viewBox and `pathLength={100}`.
+- Framer Motion drives travelling pulses and scroll-bound dash offsets.
+- CSS keyframes flash junction nodes and animate the scan-line treatment.
+- A parallax grid and board drift respond to scroll progress.
+- Mobile layouts remove desktop-only traces and reduce grid density.
+- `prefers-reduced-motion` disables animation and leaves a static board.
 
-Opacity is kept low and a readability veil sits on top so text stays crisp.
+`Reveal.tsx` applies section entrance animation while respecting the same reduced-
+motion preference. Keep text over the circuit layer readable by preserving the
+existing opacity and veil treatments when changing the artwork.
 
-### Fonts
-Fonts are self-hosted via `@fontsource/*` packages (imported in `app/layout.tsx`),
-so the build needs no network access. To switch to `next/font/google`, replace the
-imports in `app/layout.tsx` with the loaders and apply their `.variable` classes to
-`<html>` — the Tailwind config already reads the same `--font-*` variables.
+## Validation and production
+
+Run the checks locally before publishing:
+
+```bash
+npm run lint
+npm run build
+npm start
+```
+
+The production server listens on port 3000 by default. Set `PORT` when another
+local service is already using that port, for example `PORT=3001 npm start` in a
+shell that supports environment-variable prefixes.
+
+The app is compatible with standard Next.js hosting. Deploy the repository with
+the build command `npm run build` and the start command `npm start`, or connect it
+to a platform with native Next.js support.
 ```

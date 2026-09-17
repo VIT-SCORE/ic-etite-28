@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: "#05070A",
-        panel: "#0B1117",
-        cyan: "#00E5FF",
-        "electric-green": "#00FF9C",
-        "ieee-red": "#C91C2B",
-        ink: "#F5F7FA",
-        muted: "#8B98A7",
+        surface: "var(--surface)",
+        panel: "var(--surface-2)",
+        cyan: "var(--accent-cyan)",
+        "electric-green": "var(--accent-green)",
+        "ieee-red": "var(--accent-red)",
+        ink: "var(--text-primary)",
+        muted: "var(--text-muted)",
       },
       fontFamily: {
         display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],

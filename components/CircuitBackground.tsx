@@ -33,8 +33,8 @@ type Trace = {
   desktopOnly?: boolean;
 };
 
-const CYAN = "#00E5FF";
-const GREEN = "#00FF9C";
+const CYAN = "var(--circuit-primary)";
+const GREEN = "var(--circuit-secondary)";
 
 const TRACES: Trace[] = [
   // Horizontal arteries
@@ -144,7 +144,7 @@ export default function CircuitBackground() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% -10%, rgba(0,229,255,0.06), transparent 55%), radial-gradient(90% 80% at 90% 110%, rgba(0,255,156,0.05), transparent 55%)",
+            "radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--circuit-primary) 7%, transparent), transparent 55%), radial-gradient(90% 80% at 90% 110%, color-mix(in srgb, var(--circuit-secondary) 6%, transparent), transparent 55%)",
         }}
       />
 
@@ -154,7 +154,7 @@ export default function CircuitBackground() {
         style={{
           y: animate ? gridY : 0,
           backgroundImage:
-            "linear-gradient(rgba(0,229,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px)",
+            "linear-gradient(color-mix(in srgb, var(--circuit-primary) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--circuit-primary) 7%, transparent) 1px, transparent 1px)",
           backgroundSize: isMobile ? "56px 56px" : "72px 72px",
           maskImage:
             "radial-gradient(120% 100% at 50% 30%, black 55%, transparent 100%)",

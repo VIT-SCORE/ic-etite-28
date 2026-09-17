@@ -19,7 +19,7 @@ export default function TraceDivider({
   color?: "cyan" | "green";
 }) {
   const prefersReducedMotion = useReducedMotion();
-  const stroke = color === "cyan" ? "#00E5FF" : "#00FF9C";
+  const stroke = color === "cyan" ? "var(--circuit-primary)" : "var(--circuit-secondary)";
 
   const paths: Record<Variant, string[]> = {
     // Single line dropping down the page
@@ -51,7 +51,7 @@ export default function TraceDivider({
   };
 
   return (
-    <div className="pointer-events-none flex justify-center" aria-hidden="true">
+    <div className="circuit-transition pointer-events-none flex justify-center" aria-hidden="true">
       <svg
         width="400"
         height="120"
